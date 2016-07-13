@@ -1,0 +1,575 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>PostCSS</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style>
+            img{
+                border: none;
+                background: transparent;
+            }
+        </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-background="images/bg-jumping.jpg">
+                    Super Charge Your CSS with PostCSS
+                </section>
+                <section data-background="images/bg-jumping.jpg">
+                    <p>I'm Luke Larsen</p>
+                    <img style="width: 270px; border: none;" src="images/vdms-30.png" alt="VDMS Logo">
+                    <img style="width: 120px; border: none;" src="images/uplynk.png" alt="uplynk">
+                    <p>verizondigitalmedia.com</p>
+                    <p>We're hiring!</p>
+                </section>
+				<section>
+                    <h3>Me</h3>
+                    <p class="fragment" data-fragment-index="0">I play old school video games.</p>
+                    <p class="fragment" data-fragment-index="1">I enjoy playing tennis.</p>
+                    <p class="fragment" data-fragment-index="2">And at my day job I write...</p>
+                </section>
+                <section>
+                    <img src="images/blinds-css.gif" alt="css">
+                </section>
+				<section>
+                    <img src="images/dog-blinds-css.gif" alt="css mess">
+                </section>
+                <section>
+                    <img src="images/css-globals.gif" alt="css globals">
+                </section>
+                <section data-background="images/bg-flower.jpg">
+                    <p>I still love CSS.</p>
+                    <p class="fragment" data-fragment-index="0">And it's much getting better to work with.</p>
+                </section>
+                <section data-background="images/bg-dog.jpg">
+                    <p>Why do I love CSS?</p>
+                    <p class="fragment" data-fragment-index="0">There is a lot of cool things going<br>on in the world of CSS right now.</p>
+                    <img class="fragment" data-fragment-index="1" src="images/postcss.svg" alt="postcss" style="border: none; background: transparent;">
+                </section>
+                <section>
+                    <img src="images/postcss.svg" alt="postcss" style="border: none; background: transparent;">
+                    <p>A tool for transforming CSS with JavaScript</p>
+                    <p class="fragment" data-fragment-index="0">You don't have to break up with your preporcessor if you don't want to.</p>
+                    <p class="fragment" data-fragment-index="1">But you probably will.</p>
+                </section>
+                <section>
+                    <h3>Behind PostCSS</h3>
+                    <div style="float: left; width: 48%;">
+                        <p>Andrey Sitnik</p>
+                        <img width="200px" src="images/andrey.jpg" alt="">
+                    </div>
+                    <div style="float: right; width: 48%;">
+                        <p>Evil Martians</p>
+                        <img width="200px" src="images/evil-martians.svg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <p>How does PostCSS work?</p>
+                    <img class="fragment" data-fragment-index="0" src="images/postcss-1.svg" alt="" style="margin: 0 auto; display: block;">
+                    <img class="fragment" data-fragment-index="1" src="images/postcss-2.svg" alt="" style="margin: 0 auto 15px; display: block;">
+                    <img class="fragment" data-fragment-index="2" src="images/postcss-3.svg" alt="" style="margin: 0 auto 15px; display: block;">
+                    <img class="fragment" data-fragment-index="4" src="images/postcss-4.svg" alt="" style="margin: 0 auto 15px; display: block;">
+                    <img class="fragment" data-fragment-index="5" src="images/postcss-5.svg" alt="" style="margin: 0 auto 15px; display: block;">
+                </section>
+                <section>
+                    <p>Why do I need this?</p>
+                    <p>What can it do?</p>
+                    <p>PostCSS by itself doesn't do anything. So...</p>
+                </section>
+                <section data-background="images/bg-snow-lift.jpg">
+                    <p>Use plugins!</p>
+                    <p class="fragment" data-fragment-index="0">or</p>
+                    <p><span class="fragment" data-fragment-index="1">Create your own.</span><br><span class="fragment" data-fragment-index="2" style="font-size: 20px;">(It's pretty easy.)</span></p>
+                </section>
+                <section class="stack">
+                    <section>
+                        <h3>Popular Plugins</h3>
+                    </section>
+                    <section>
+                        <img src="images/logo-autoprefixer.png" alt="">
+                        <h3>Autoprefixer</h3>
+                        <div style="float: left; width: 48%; margin-right 15px;">
+                        <pre><code data-trim data-noescape>
+:fullscreen a {
+    display: flex
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: right; width: 48%; margin-left: 15px;">
+                        <pre><code data-trim data-noescape>
+:-webkit-full-screen a {
+    display: -webkit-box;
+    display: flex
+}
+:-moz-full-screen a {
+    display: flex
+}
+:-ms-fullscreen a {
+    display: -ms-flexbox;
+    display: flex
+}
+:fullscreen a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}                        </code></pre>
+                        </div>
+
+                    </section>
+                    <section>
+                        <img width=150 height=150 src="images/logo-cssnext.svg" alt="">
+                        <h3>cssnext</h3>
+                        <div style="float: left; width: 48%; margin-right 5px;">
+                        <pre style="font-size: 0.48em;"><code data-trim data-noescape>
+:root {
+  --red: #d33;
+}
+a {
+  &:hover {
+    color: color(var(--red) a(54%));
+  }
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: right; width: 48%; margin-left: 5px;">
+                        <pre style="font-size: 0.48em;"><code data-trim data-noescape>
+a:hover {
+  color: #dd3333;
+  color: rgba(221, 51, 51, 0.54);
+}
+                        </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <img src="images/logo-precss.png" alt="">
+                        <h3>precss</h3>
+                        <div style="float: left; width: 48%;">
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+$blue: #056ef0;
+
+@define-mixin icon $name {
+    padding-left: 16px;
+
+    &::after {
+        content: "";
+        background-url: url(/icons/$name.png);
+    }
+}
+
+.search {
+    @mixin icon search;
+    background-color: $blue;
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: right; width: 48%;">
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.search {
+    padding-left: 16px;
+}
+
+.search::after {
+    content: "";
+    background-url: url(/icons/search.png);
+    background-color: #056ef0;
+}
+                        </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Styleguide Generator</h3>
+                        <div style="float: left; width: 48%;">
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+/* @start color */
+:root {
+    --red: #e23B00;
+    --blue: #3f526b;
+    --black: #000;
+    --background: #faf8f5;
+}
+/* @end color */
+
+</code></pre>
+                        </div>
+                        <div style="float: right; width: 48%;">
+                            <img src="images/logo-styleguide.png" alt="">
+                        </div>
+
+                    </section>
+                    <section>
+                        <h3>Color Blind</h3>
+                        All Colors<br>
+                        <img width=50%; src="images/logo-colorblind1.jpg" alt=""><br>
+                        No Green<br>
+                        <img width=50%; src="images/logo-colorblind2.jpg" alt="">
+                    </section>
+                    <section data-background="images/bg-pedro.jpg">
+                        <h3>Spanish Stylesheets</h3>
+                        <div style="float: left; width: 48%;">
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.foo {
+    redondeado: 3px;
+    fondo: #fff;
+    ancho: 300px;
+    alto: 200px;
+    flota: izquierda;
+    arriba: 10px;
+    abajo: 0px;
+    izquierda: 100px;
+    derecha: 100px;
+    espaciado: -1px;
+    puntero: manito !importantisimo;
+    text-transform: mayuscula;
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: right; width: 48%;">
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.foo {
+    border-radius: 3px;
+    background: #fff;
+    width: 300px;
+    height: 200px;
+    float: left;
+    top: 10px;
+    bottom: 0px;
+    left: 100px;
+    right: 100px;
+    letter-spacing: -1px;
+    cursor: pointer !important;
+    text-transform: uppercase;
+}                        </code></pre>
+                        </div>
+
+                    </section>
+                    <section>
+                        <h3>Others</h3>
+                        <ul>
+                            <li>Source Maps</li>
+                            <li>Font Loading</li>
+                            <li>Style Linters</li>
+                            <li>Cache Busting</li>
+                            <li>Right to Left</li>
+                            <li>Sort Rules</li>
+                            <li>BEM Linter</li>
+                            <li>CSS Optimizations</li>
+                            <li>SVG Optimizations</li>
+                            <li>See them all at <a target="_blank" style="color: white; text-decoration: underline;" href="http://postcss.parts">postcss.parts</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        The PostCSS ecosystem is very alive.
+                    </section>
+                </section>
+                <section>
+                    <h3>How do I use this PostCSS magic?</h3>
+                    <div class="fragment" data-fragment-index="0">
+                        <p>It suports all the build tools. </p>
+                        <img style="width: 70px; margin-right: 15px; margin-left: 30px;" src="images/logo-gulp.svg" alt="">
+                        <img src="images/logo-grunt.png" alt="">
+                        <img src="images/logo-webpack.png" alt=""><br>
+                        <div style="width: 400px; margin: 0 auto;">
+                            <ul style="font-size: 25px; float: left; width: 45%; margin-left: 55px;">
+                                <li>HTML</li>
+                                <li>Stylus</li>
+                                <li>Rollup</li>
+                                <li>Brunch</li>
+                                <li>Broccoli</li>
+                            </ul>
+                            <ul style="font-size: 25px; float: right; width: 35%;">
+                                <li>Meteor</li>
+                                <li>ENB</li>
+                                <li>Fly</li>
+                                <li>Start</li>
+                                <li>Express</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section data-background="images/bg-city.jpg">
+                    <h3>Demo</h3>
+                    <p>Setting up Autoprifixer and a grid system</p>
+                </section>
+                <section data-background="images/bg-wave.jpg">
+                    <h3>Creating a plugin</h3>
+                </section>
+                <section>
+                    <section>
+                        <h3>Plugin Wrapper</h3>
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+var postcss = require('postcss');
+
+module.exports = postcss.plugin('myplugin', function myplugin(options) {
+
+    return function (css) {
+        options = options || {};
+
+        // Processing code will be added here
+
+    }
+});
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <div style="float: left; width: 24%; margin-right: 15px;">
+                            <p>Rule</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.disappear{
+    display: none;
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: left; width: 24%; margin-right: 15px;">
+                            <p>Declaration</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+display: none;
+                        </code></pre>
+                        </div>
+                        <div style="float: left; width: 22%; margin-right: 15px;">
+                            <p>Property</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+display:
+                        </code></pre>
+                        </div>
+                        <div style="float: left; width: 22%;">
+                            <p>Value</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+none;
+                        </code></pre>
+                        </div>
+
+                    </section>
+                    <section>
+                        <p>Loop through Rules and Declarations</p>
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+css.walkRules(function (rule) {
+
+    rule.walkDecls(function (decl, i) {
+
+
+    });
+
+});
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <p>Do something when we find a certain declaration</p>
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+var value = decl.value;
+
+if (value.indexOf('disappear') !== -1) {
+    // Insert disappear css
+    decl.cloneBefore({ prop: 'display',  value: 'none !important' });
+    decl.cloneBefore({ prop: 'visibility',  value: 'hidden' });
+
+    // Remove original declaration
+    decl.remove();
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <p>All together</p>
+                        <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+var postcss = require('postcss');
+
+module.exports = postcss.plugin('myplugin', function myplugin(options) {
+
+    return function (css) {
+        options = options || {};
+
+        css.walkRules(function (rule) {
+            rule.walkDecls(function (decl, i) {
+                var value = decl.value;
+                if (value.indexOf('disappear') !== -1) {
+                    // Insert disappear css
+                    decl.cloneBefore({ prop: 'display',  value: 'none !important' });
+                    decl.cloneBefore({ prop: 'visibility',  value: 'hidden' });
+
+                    // Remove original declaration
+                    decl.remove();
+                 }
+            });
+        });
+    }
+});
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <div style="float: left; width: 48%;">
+                            <p>Original CSS</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.disappear{
+    display: disappear;
+}
+                        </code></pre>
+                        </div>
+                        <div style="float: right; width: 48%;">
+                            <p>Compiled CSS</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim data-noescape>
+.disappear{
+    display: none !important;
+    visibility: hidden;
+}
+                        </code></pre>
+                        </div>
+
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Solving the Global Problem</h3>
+                        <div style="vertical-align: middle;">
+                            <img width=220px; style="margin: 0 0 45px;" src="images/logo-react.png" alt="">
+                            <img width=65px; style="margin: 0 0 35px;" src="images/plus.png" alt="">
+                            <img width=220px; style="margin: 0 0 30px" src="images/postcss.svg" alt="">
+                            <img width=65px; style="margin: 0 0 35px;"src="images/plus.png" alt="">
+                            <img width=250px; src="images/logo-cssmodules.png" alt="">
+                        </div>
+                    </section>
+                    <section>
+                        <img src="images/css-globals.gif" alt="css globals">
+                    </section>
+                    <section>
+                        <div>
+                            <p>A React Button Component</p>
+                            <pre style="font-size: 0.40em; width: 100%;"><code data-trim>
+/* Button.js */
+import React from 'react'
+
+/* Styles imported as an object with classnames as keys */
+import styles from './button.css'
+
+class Button extends React.Component{
+    render(){
+        const text = this.props.text
+        return {
+            <div className={styles.wrapper}>
+                <button className={styles.button}>
+                    {text}
+                </button>
+            </div>
+        }
+    }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <div style="float: left; width: 48%;">
+                                <p>Original CSS</p>
+                                <pre style="font-size: 0.40em; width: 100%;"><code data-trim>
+.wrapper{
+    margin: 10px;
+}
+
+.button{
+    color: white;
+    padding: 5px 10px;
+}
+                                </code></pre>
+                            </div>
+                            <div style="float: right; width: 48%;">
+                                <p>Compiled CSS</p>
+                                <pre style="font-size: 0.40em; width: 100%;"><code data-trim>
+.button__wrapper_45xc13{
+    margin: 10px;
+}
+
+.button__button__unye73{
+    color: white;
+    padding: 5px 10px;
+}
+                                </code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="float: left; width: 48%;">
+                                <p>The result</p>
+                                <pre style="font-size: 0.40em; width: 100%;"><code data-trim>
+<!-- Localized Classes! -->
+<div class="button__wrapper__45xc13">
+    <button class="button__button__unye73">
+        My Button
+    </button>
+</div>
+                                </code></pre>
+                            </div>
+                            <div style="float: right; width: 48%;">
+                                <p>Instead of</p>
+                                <pre style="font-size: 0.40em; width: 100%;"><code data-trim>
+<!-- Collision City! -->
+<div class="wrapper">
+    <button class="button">
+        My Button
+    </button>
+</div>
+                                </code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    </section>
+
+                <section data-background="images/bg-bridge.jpg">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li style="margin-bottom: 15px; line-height: 30px;"><a style="font-size: 25px; color: white;" href="http://webdesign.tutsplus.com/tutorials/postcss-quickstart-guide-instant-setup-options--cms-24536" target="_blank">http://webdesign.tutsplus.com/tutorials/postcss-quickstart-guide-instant-setup-options--cms-24536</a></li>
+                        <li style="margin-bottom: 15px; line-height: 30px;"><a style="font-size: 25px; color: white;" href="https://css-tricks.com/want-make-postcss-plugin/" target="_blank">https://css-tricks.com/want-make-postcss-plugin/</a></li>
+                        <li style="margin-bottom: 15px; line-height: 30px;"><a style="font-size: 25px; color: white;" href="https://vimeo.com/173122870" target="_blank">https://vimeo.com/173122870</a></li>
+                    </ul>
+                </section>
+                <section data-background="images/bg-jumping.jpg">
+                    <h3>Thank You</h3>
+                    <p>@lukelarsen</p>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
